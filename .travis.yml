@@ -1,12 +1,12 @@
 language: python
 #sudo: false
-addons:
-  apt:
-    packages:
-    - tox
-  apt-get:
-    - python3-dev
-    - libpython3.7 
+#addons:
+#  apt:
+#    packages:
+#    - tox
+#  apt-get:
+#    - python3-dev
+#    - libpython3.7 
 
 matrix:
   include:
@@ -29,4 +29,6 @@ install:
   - python setup.py install
 
 script:
+  - pip install tox
+  - pip install libpython
   - tox -v
