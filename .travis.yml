@@ -5,8 +5,8 @@ addons:
     packages:
     - tox
     - python3-dev
-  apt-get:
-    - libpython3.7 
+  #apt-get:
+  #  - libpython3.7 
 
 matrix:
   include:
@@ -26,7 +26,7 @@ before_install:
   - source activate;
 
 install:
-  #- pip install libpython3.7
+  - pip install libpython3.7
   - python setup.py install
 
 script:
