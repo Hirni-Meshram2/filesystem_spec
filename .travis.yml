@@ -4,13 +4,10 @@ addons:
   apt:
     packages:
     - tox
+    - libpython3.7 
 
 matrix:
   include:
-    - os: linux
-      arch: arm64
-      language: generic
-      env: PYTHON_VERSION=3.6
     - os: linux
       arch: arm64
       language: generic
