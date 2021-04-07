@@ -1,0 +1,45 @@
+language: python
+sudo: false
+
+matrix:
+  include:
+    - os: linux
+      language: generic
+      env: PYTHON_VERSION=3.6
+    - os: linux
+      arch: arm64
+      language: generic
+      env: PYTHON_VERSION=3.6
+    - os: linux
+      language: generic
+      env: PYTHON_VERSION=3.6
+    - os: linux
+      arch: arm64
+      language: generic
+      env: PYTHON_VERSION=3.7
+
+before_install:
+  # Install latest miniconda
+  - if [[ "${TRAVIS_CPU_ARCH}" == "arm64" ]]; then
+      SUDO=sudo;
+      wget -q "https://github.com/Archiconda/build-tools/releases/download/0.2.3/Archiconda3-0.2.3-Linux-aarch64.sh" -O archiconda.sh;
+      chmod +x archiconda.sh;
+      bash archiconda.sh -b -p $HOME/miniconda;
+      export PATH="$HOME/miniconda/bin:$PATH";
+      $SUDO cp -r $HOME/miniconda/bin/* /usr/bin/;
+      source "$HOME"/miniconda/etc/profile.d/conda.sh;
+      service activate;
+    elseif [[ "${TRAVIS_CPU_ARCH}" != "arm64" ]]; then
+      wget -q https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O Miniconda3.sh
+      bash Miniconda3.sh -b
+      ~/miniconda3/bin/conda install conda-build -y
+      ~/miniconda3/bin/conda create -q -y --name testenv python=$CONDA_PY cython numpy pytest psutil pip
+      source ~/miniconda3/bin/activate testenv
+      
+sudo: false
+install:
+  - pip install -r requirements.txt
+  - python setup.py install
+
+script:
+  - tox -v
