@@ -21,19 +21,19 @@ matrix:
 
 before_install:
   # Install miniconda
-if [ "${TRAVIS_CPU_ARCH}" == "arm64" ]; then
-    wget https://github.com/conda-forge/miniforge/releases/download/4.8.2-1/Miniforge3-4.8.2-1-Linux-aarch64.sh -O miniconda.sh;
-else \
-    wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh;
-fi
-MINICONDA_PATH=/home/travis/miniconda
-chmod +x miniconda.sh && ./miniconda.sh -b -p $MINICONDA_PATH
-export PATH=$MINICONDA_PATH/bin:$PATH
+  - if [ "${TRAVIS_CPU_ARCH}" == "arm64" ]; then
+        wget https://github.com/conda-forge/miniforge/releases/download/4.8.2-1/Miniforge3-4.8.2-1-Linux-aarch64.sh -O miniconda.sh;
+    else \
+        wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh;
+    fi
+  - MINICONDA_PATH=/home/travis/miniconda
+  - chmod +x miniconda.sh && ./miniconda.sh -b -p $MINICONDA_PATH
+  - export PATH=$MINICONDA_PATH/bin:$PATH
 
 # Configure the conda environment and put it in the path using the
 # provided versions
-conda create -n testenv --yes python=$PYTHON_VERSION pip
-source activate testenv
+  - conda create -n testenv --yes python=$PYTHON_VERSION pip
+  - source activate testenv
 
 install:
   - python setup.py install
