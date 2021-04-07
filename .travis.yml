@@ -3,9 +3,10 @@ language: python
 addons:
   apt:
     packages:
+    - update
     - tox
     - python3-dev
-    - libpython3.7-dev 
+    - libpython3-dev 
 
 matrix:
   include:
