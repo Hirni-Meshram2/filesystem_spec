@@ -30,4 +30,4 @@ install:
   - python setup.py install
 
 script:
-  - tox -v
+  - tox -e py37
