@@ -20,7 +20,7 @@ before_install:
   - export PATH="$HOME/miniconda/bin:$PATH";
   - sudo cp -r $HOME/miniconda/bin/* /usr/bin/;
   - source "$HOME"/miniconda/etc/profile.d/conda.sh;
-  - service activate;
+  - source activate;
 
 install:
   - pip install -r requirements.txt
