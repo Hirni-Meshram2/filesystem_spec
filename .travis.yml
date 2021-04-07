@@ -17,8 +17,7 @@ matrix:
 
 before_install:
   # Install latest miniconda
-  - wget https://github.com/conda-forge/miniforge/releases/download/4.8.2-1/Miniforge3-4.8.2-1-Linux-aarch64.sh \
-         -O miniconda.sh;
+  - wget https://github.com/conda-forge/miniforge/releases/download/4.8.2-1/Miniforge3-4.8.2-1-Linux-aarch64.sh -O miniconda.sh;
   - MINICONDA_PATH=/home/travis/miniconda
   - chmod +x miniconda.sh && ./miniconda.sh -b -p $MINICONDA_PATH
   - export PATH=$MINICONDA_PATH/bin:$PATH
