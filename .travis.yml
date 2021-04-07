@@ -1,5 +1,9 @@
 language: python
 #sudo: false
+addons:
+  apt:
+    packages:
+    - tox
 
 matrix:
   include:
@@ -21,7 +25,6 @@ before_install:
   - sudo cp -r $HOME/miniconda/bin/* /usr/bin/;
   - source "$HOME"/miniconda/etc/profile.d/conda.sh;
   - source activate;
-  - pip3 install tox
 
 install:
   - python setup.py install
