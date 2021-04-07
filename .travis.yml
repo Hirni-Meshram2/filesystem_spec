@@ -10,6 +10,7 @@ addons:
 matrix:
   include:
     - os: linux
+      dist: bionic
       arch: arm64
       language: generic
       env: PYTHON_VERSION=3.7
