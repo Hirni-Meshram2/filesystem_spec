@@ -5,6 +5,7 @@ addons:
     packages:
     - tox
   apt-get:
+    - python3-dev
     - libpython3.7 
 
 matrix:
