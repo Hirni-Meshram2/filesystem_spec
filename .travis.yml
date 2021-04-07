@@ -17,28 +17,17 @@ matrix:
 
 before_install:
   # Install latest miniconda
-   wget https://github.com/conda-forge/miniforge/releases/download/4.8.2-1/Miniforge3-4.8.2-1-Linux-aarch64.sh \
-        -O miniconda.sh;
-   MINICONDA_PATH=/home/travis/miniconda
-   chmod +x miniconda.sh && ./miniconda.sh -b -p $MINICONDA_PATH
-   export PATH=$MINICONDA_PATH/bin:$PATH
+  - wget https://github.com/conda-forge/miniforge/releases/download/4.8.2-1/Miniforge3-4.8.2-1-Linux-aarch64.sh \
+         -O miniconda.sh;
+  - MINICONDA_PATH=/home/travis/miniconda
+  - chmod +x miniconda.sh && ./miniconda.sh -b -p $MINICONDA_PATH
+  - export PATH=$MINICONDA_PATH/bin:$PATH
    # Configure the conda environment and put it in the path using the
    # provided versions
-   conda create -n testenv --yes python=$PYTHON_VERSION pip
-   source activate testenv
+  - conda create -n testenv --yes python=$PYTHON_VERSION pip
+  - source activate testenv
 
-  #- wget -q "https://github.com/Archiconda/build-tools/releases/download/0.2.3/Archiconda3-0.2.3-Linux-aarch64.sh" -O archiconda.sh;
-  #- chmod +x archiconda.sh;
-  #- bash archiconda.sh -b -p $HOME/miniconda;
-  #- export PATH="$HOME/miniconda/bin:$PATH";
-  #- sudo cp -r $HOME/miniconda/bin/* /usr/bin/;
-  #- source "$HOME"/miniconda/etc/profile.d/conda.sh;
-  #- source activate;
-  
-  
-  
 install:
-  #- pip install libpython3.7
   - python setup.py install
 
 script:
