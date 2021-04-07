@@ -4,6 +4,7 @@ addons:
   apt:
     packages:
     - tox
+  apt-get:
     - libpython3.7 
 
 matrix:
