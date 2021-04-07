@@ -14,12 +14,12 @@ matrix:
 
 before_install:
   # Install latest miniconda
-  - SUDO=sudo;
   - wget -q "https://github.com/Archiconda/build-tools/releases/download/0.2.3/Archiconda3-0.2.3-Linux-aarch64.sh" -O archiconda.sh;
   - chmod +x archiconda.sh;
   - bash archiconda.sh -b -p $HOME/miniconda;
   - export PATH="$HOME/miniconda/bin:$PATH";
-  - $SUDO cp -r $HOME/miniconda/bin/* /usr/bin/;
+  - apt-get install sudo;
+  - sudo cp -r $HOME/miniconda/bin/* /usr/bin/;
   - source "$HOME"/miniconda/etc/profile.d/conda.sh;
   - service activate;
 
