@@ -38,7 +38,7 @@ before_install:
 
 install:
   - python setup.py install
-  #- conda install hadoop-test-cluster==0.1.0 smbprotocol
+  - pip install hadoop-test-cluster==0.1.0 smbprotocol
 
 script:
   - tox -e py37
