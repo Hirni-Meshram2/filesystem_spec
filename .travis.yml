@@ -13,12 +13,12 @@ matrix:
     - os: linux
       dist: bionic
       language: python
-      env: PYTHON_VERSION=3.7
+      env: PYTHON_VERSION=3.8
     - os: linux
       dist: bionic
       arch: arm64
       language: python
-      env: PYTHON_VERSION=3.7
+      env: PYTHON_VERSION=3.8
 
 before_install:
   # Install miniconda
@@ -38,7 +38,7 @@ before_install:
 
 install:
   - python setup.py install
-  - pip install importlib_metadata
+  #- pip install importlib_metadata
   - pip install hadoop-test-cluster==0.1.0 smbprotocol
 
 script:
