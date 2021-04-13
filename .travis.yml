@@ -39,7 +39,7 @@ install:
   - python setup.py install
   - pip install tox
   #- pip install importlib_metadata
-  - pip install hadoop-test-cluster==0.1.0 smbprotocol
+  #- pip install hadoop-test-cluster==0.1.0 smbprotocol
 
 script:
   - tox -e py38
