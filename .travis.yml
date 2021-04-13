@@ -36,7 +36,7 @@ before_install:
   - source activate testenv
 
 install:
-  - pip install pytest-cov numpy aiohttp
+  - pip install pytest-cov numpy aiohttp requests
   - pip install tox
   - python setup.py install
   #- pip install importlib_metadata
