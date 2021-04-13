@@ -3,7 +3,6 @@ language: python
 addons:
   apt:
     packages:
-    - tox
     - python3-dev
     - libpython3.8
     - wget
@@ -38,6 +37,7 @@ before_install:
 
 install:
   - python setup.py install
+  - pip install tox
   #- pip install importlib_metadata
   - pip install hadoop-test-cluster==0.1.0 smbprotocol
 
