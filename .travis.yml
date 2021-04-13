@@ -37,6 +37,7 @@ before_install:
 
 install:
   - pip install pytest-cov numpy aiohttp requests
+  - pip install --upgrade setuptools
   - pip install tox
   - python setup.py install
   #- pip install importlib_metadata
