@@ -20,6 +20,7 @@ matrix:
       env: PYTHON_VERSION=3.8
 
 before_install:
+  - git checkout dc409737852d9675787334627a955011a7afc0c2
   # Install miniconda
   - if [ "${TRAVIS_CPU_ARCH}" == "arm64" ]; then
         wget https://github.com/conda-forge/miniforge/releases/download/4.8.2-1/Miniforge3-4.8.2-1-Linux-aarch64.sh -O miniconda.sh;
