@@ -13,13 +13,14 @@ matrix:
       dist: bionic
       language: python
       env: PYTHON_VERSION=3.8
-    - os: linux
-      dist: bionic
-      arch: arm64
-      language: python
-      env: PYTHON_VERSION=3.8
+    #- os: linux
+    #  dist: bionic
+    #  arch: arm64
+    #  language: python
+    #  env: PYTHON_VERSION=3.8
 
-before_install:
+#before_install:
+install:
   - git checkout -qf dc409737852d9675787334627a955011a7afc0c2
   # Install miniconda
   - if [ "${TRAVIS_CPU_ARCH}" == "arm64" ]; then
@@ -35,8 +36,6 @@ before_install:
 # provided versions
   - conda create -n testenv --yes python=$PYTHON_VERSION pip
   - source activate testenv
-
-install:
   - pip install pytest-cov numpy aiohttp requests
   - pip install --upgrade setuptools
   - pip install tox
